@@ -1,0 +1,16 @@
+<aura:component>
+    <aura:handler event="c:evtData" action="{!c.addToList}"/>
+    <aura:attribute name="mensaje" type="String" />
+    <aura:attribute name="lista" type="String[]" default="['uno', 'dos', 'tres']"/>
+    <h1>Hola {!v.mensaje}</h1>
+    <lightning:input type="text" label="Pikachu" value="{!v.mensaje}"/>
+    <lightning:button label="Saludar" onclick="{!c.saludar}" name="{!v.mensaje}"/>
+    <table>
+        <aura:iteration items="{!v.lista}" var="elemento">
+            <tr>
+                <td>{!elemento}</td>
+            </tr>
+        </aura:iteration>
+    </table>
+    <input type="button" value="Clear List" onclick="{!c.clearList}" />
+</aura:component>
